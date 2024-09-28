@@ -9,12 +9,12 @@ st.set_page_config(layout="wide")
 
 st.markdown(f"<h1 style='text-align: center;'>World GDP Growth</h1>", unsafe_allow_html=True)
 
-FDI = pd.read_csv('FIXED DATA/FDI_melt.csv')
-GDP = pd.read_csv('FIXED DATA/GDP_melt.csv')
-Inflation = pd.read_csv('FIXED DATA/inflation_melt.csv')
-Trade = pd.read_csv('FIXED DATA/trade_melt.csv')
-Unemployment = pd.read_csv('FIXED DATA/unemployment_melt.csv')
-WDI = pd.read_csv('FIXED DATA/WDI_melt.csv')
+FDI = pd.read_csv('main_data-processed/FDI_melt.csv')
+GDP = pd.read_csv('main_data-processed/GDP_melt.csv')
+Inflation = pd.read_csv('main_data-processed/inflation_melt.csv')
+Trade = pd.read_csv('main_data-processed/trade_melt.csv')
+Unemployment = pd.read_csv('main_data-processed/unemployment_melt.csv')
+WDI = pd.read_csv('main_data-processed/WDI_melt.csv')
 
 FDI.rename(columns={'Value': 'Value_FDI'}, inplace=True)
 GDP.rename(columns={'Value': 'GDP'}, inplace=True)
@@ -184,7 +184,7 @@ else:
     st.warning("Please select at least one country to display GDP trends.")
 
 
-forecast_df = pd.read_csv('FIXED DATA/merge_and_forecast.csv')
+forecast_df = pd.read_csv('main_data-processed/merge_and_forecast.csv')
 
 average_gdp = forecast_df.groupby('Year', as_index=False)['Value_GDP'].mean()
 
