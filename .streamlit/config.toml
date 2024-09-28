@@ -7,4 +7,4 @@ textColor="#262730"
 font="sans serif"
 
 [server]
-script = "020dsc24-rasio.py"
+script = "020DSC24_DSC dashboard.py"
