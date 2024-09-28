@@ -184,6 +184,8 @@ else:
     st.warning("Please select at least one country to display GDP trends.")
 
 
+st.subheader("Average GDP Over Years & Forecasted GDP")
+
 forecast_df = pd.read_csv('main_data-processed/merge_and_forecast.csv')
 
 average_gdp = forecast_df.groupby('Year', as_index=False)['Value_GDP'].mean()
@@ -208,7 +210,7 @@ fig_forecast_combined.add_trace(go.Scatter(x=highlight_data['Year'], y=highlight
                          line=dict(color='orange', width=2)))
 
 # Update layout
-fig_forecast_combined.update_layout(title='Average GDP Over Years & Forecasted GDP',
+fig_forecast_combined.update_layout(title='',
                   xaxis_title='Year',
                   yaxis_title='Average GDP Value',
                   template='plotly_white')
