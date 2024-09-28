@@ -7,7 +7,8 @@ import plotly.graph_objects as go
 
 st.set_page_config(layout="wide")
 
-st.markdown(f"<h1 style='text-align: center;'>World GDP Growth</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align: center;background-color: #EDDFE0'>World GDP Growth</h1>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 
 FDI = pd.read_csv('main_data-processed/FDI_melt.csv')
 GDP = pd.read_csv('main_data-processed/GDP_melt.csv')
@@ -68,7 +69,7 @@ with col2:
     else:
         st.dataframe(table_gdp)
 
-st.markdown(f"<h2 style='text-align: center;'>Data Indicator</h2>", unsafe_allow_html=True)
+st.markdown(f"<h2 style='text-align: center; background-color:#EDDFE0'>Data Indicator</h2>", unsafe_allow_html=True)
 
 with st.container():
     average_fdi = merged_df[merged_df['Year'] == selected_year]['Value_FDI'].mean()
@@ -87,7 +88,7 @@ with st.container():
     <style>
         .indicator-container {
             background-color: #FFFFFF;
-            border: 1px solid #CCCCCC;
+            border: 1px solid #000000;
             padding: 1rem;  /* Increased padding */
             border-radius: 5px;
             border-left: 0.5rem solid #y9AD8E1 !important;
@@ -160,7 +161,7 @@ with st.container():
 
 # Centered Subheader for Trend
 st.markdown("<br>", unsafe_allow_html=True)
-st.subheader("Trend (2000 - 2024)")
+st.markdown(f"<h2 style='text-align: center;background-color: #EDDFE0'>Trend (2000 - 2024)</h2>", unsafe_allow_html=True)
 
 # Add a multi-select box for country selection
 selected_countries = st.multiselect(
@@ -183,8 +184,8 @@ if selected_countries:
 else:
     st.warning("Please select at least one country to display GDP trends.")
 
-
-st.subheader("Average GDP Over Years & Forecasted GDP")
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown(f"<h2 style='text-align: center;background-color: #EDDFE0'>Average GDP Over Years & Forecasted GDP</h2>", unsafe_allow_html=True)
 
 forecast_df = pd.read_csv('main_data-processed/merge_and_forecast.csv')
 
@@ -217,3 +218,9 @@ fig_forecast_combined.update_layout(title='',
 
 # Show the figure
 st.plotly_chart(fig_forecast_combined)
+ 
+st.markdown("<br>", unsafe_allow_html=True)
+divcol1, divcol2 = st.columns(2)
+
+with divcol1:
+    st.info('Copyright © Akmal Yaasir Fauzaan, Muhammad Karov Ardava Barus - All rights reserved')
